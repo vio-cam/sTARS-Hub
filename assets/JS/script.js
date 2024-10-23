@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { registerUser, loginUser, loginWithGoogle } from "./config.js";
 
 // Mostrar formulario de registro al hacer clic
@@ -56,6 +57,10 @@ document.getElementById('loginGoogleBtn').addEventListener('click', (event) => {
     event.preventDefault();
     loginWithGoogle();
 });
+=======
+console.log("Hola");
+console.log("prueba");
+>>>>>>> 25a9cdd0acd27bbea53f430c10a355592344b1ee
 =======
 console.log("Hola");
 console.log("prueba");

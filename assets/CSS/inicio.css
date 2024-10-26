@@ -53,6 +53,7 @@ header {
     display:flexbox;
     justify-content: center;
     align-items: center;
+    }
 #stars-word, #hub-word{    
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;

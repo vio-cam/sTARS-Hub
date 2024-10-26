@@ -4,159 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STARS HUB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/inicio.css">
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="STARS HUB Logo">
+        <div id="logo">
+            <p id="stars-word"><a href="index.html">stars</a></p>
+            <i id="star-icon" class="bi bi-star-fill"></i>
+            <p id="hub-word">Hub</p>
         </div>
         <nav>
             <ul>
-                <li><a href="#cursos">Descripción</a></li>
-                <li><a href="#programas">Propósito</a></li>
-                <li><a href="#servicios">Objetivos</a></li>
+                <li><a href="#carousel-description-container">Descripción</a></li>
+                <li><a href="#vision-future-container">Propósito</a></li>
+                <li><a href="#objetivo">Objetivos</a></li>
                 <li><a href="#contacto">Proceso de creación</a></li>
+                <li><a href="#contacto">Equipo</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
-            <a href="#login" class="login-btn">Iniciar Sesión</a>
-            <a href="#register" class="register-btn">Registrarse</a>
+            <a href="registro.html" class="login-btn">Iniciar Sesión</a>
+            <a href="registro.html" class="register-btn">Registrarse</a>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>STARS HUB</h1>
-        <p>¡Tu camino a una educación de calidad comienza aquí! 🚀</p>
-    </section>
-
     <section class="content">
-        <div class="carousel-description-container">
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-slide">
-                        <img src="assets/images/img1.jpg" alt="Imagen 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/images/img2.jpg" alt="Imagen 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/images/img3.jpg" alt="Imagen 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/images/img4.jpg" alt="Imagen 4">
-                    </div>
-                </div>
-            </div>
-            <div class="description">
-                <p>
-                    Nuestra plataforma conecta a estudiantes con oportunidades académicas, recursos de estudio y apoyo entre compañeros. Todo en un solo lugar, porque creemos en la educación para todos. Nos enfocamos en facilitar el acceso a información valiosa, desde becas hasta programas de tutorías, para que ningún estudiante se quede atrás en su camino hacia una educación de calidad.
-                </p>
-            </div>
-        </div>
+        <section class="hero">
+            <h1>STARS HUB</h1>
+            <p>¡Tu camino a una educación de calidad comienza aquí! 🚀</p>
+        </section>
 
-        <div class="vision-future-container">
-            <div class="vision-text">
-                <h2>¿Qué nos llevó a crear nuestra app?</h2>
-                <p>
-                    Una visión hacia el futuro: democratizar la educación. A lo largo de los años, hemos observado que muchos jóvenes y adolescentes tienen un gran sueño: ser profesionales en las áreas que más les apasionan. Sin embargo, este camino está lleno de barreras que a menudo dificultan alcanzar sus metas académicas. Entre los desafíos más comunes se encuentran:
-                </p>
-            </div>
-            <div class="challenge-boxes">
-                <div class="challenge-box">
-                    <span class="symbol">📘</span>
-                    <div class="challenge-name">Acceso limitado a recursos educativos actualizados</div>
-                    <p class="challenge-info">
-                        Muchos estudiantes no tienen a su disposición materiales de estudio modernos y útiles.
-                    </p>
-                </div>
-                <div class="challenge-box">
-                    <span class="symbol">🎓</span>
-                    <div class="challenge-name">Oportunidades académicas restringidas</div>
-                    <p class="challenge-info">
-                        No todos conocen las becas, programas de intercambio o mentorías que podrían abrirles puertas.
-                    </p>
-                </div>
-                <div class="challenge-box">
-                    <span class="symbol">🤝</span>
-                    <div class="challenge-name">Falta de apoyo y colaboración</div>
-                    <p class="challenge-info">
-                        Muchos jóvenes no cuentan con un entorno donde puedan intercambiar conocimientos o recibir ayuda en sus estudios.
-                    </p>
-                </div>
-                <div class="challenge-box">
-                    <span class="symbol">🎯</span>
-                    <div class="challenge-name">Desconocimiento de becas y recursos</div>
-                    <p class="challenge-info">
-                        Un gran número de estudiantes no sabe cómo acceder a becas, programas de mentores o recursos complementarios que podrían mejorar su experiencia educativa.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="objetivo">
-            <div class="titulo-obj">
-                <h2>Objetivos</h2>
-            </div>
-            <div class="caja-obje">
-                <div class="caja-objetivo">
-                    <img src="a" alt="Facilitar el acceso a oportunidades académicas" class="objetivo-img">
-                    <div class="objetivo-content">
-                        <div class="objetivo-name">Facilitar el acceso a oportunidades académicas</div>
-                        <p class="objetivoinfo">
-                            Queremos que los estudiantes de secundaria y universitarios tengan en un solo lugar todo lo que necesitan: desde recursos académicos, becas y tutorías, hasta programas de intercambio de conocimientos y recomendaciones valiosas.
-                        </p>
+        <div class="main-content">
+            <!-- Izquierda: Descripción, Objetivos, ¿Qué nos llevó a crearlo? -->
+            <div class="left-content">
+                <div class="carousel-description-container" id="carousel-description-container">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-slide">
+                                <img src="assets/images/img1.jpg" alt="Imagen 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/img2.jpg" alt="Imagen 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/img3.jpg" alt="Imagen 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/img4.jpg" alt="Imagen 4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>Nuestra plataforma conecta a estudiantes con oportunidades académicas, recursos de estudio y apoyo entre compañeros. Con STARS HUB, puedes descubrir becas, participar en programas de intercambio de conocimientos, acceder a tutorías personalizadas y mucho más. Nos enfocamos en proporcionar una red inclusiva para todos los estudiantes, especialmente aquellos en contextos desfavorecidos.</p>
                     </div>
                 </div>
-                <div class="caja-objetivo">
-                    <img src="a" alt="Promover el aprendizaje colaborativo" class="objetivo-img">
-                    <div class="objetivo-content">
-                        <div class="objetivo-name">Promover el aprendizaje colaborativo</div>
-                        <p class="objetivoinfo">
-                            Nuestra app crea un espacio seguro donde los estudiantes pueden compartir recursos educativos, consejos de estudio, resolver dudas y trabajar en conjunto.
-                        </p>
+
+                <div class="vision-future-container" id="vision-future-container">
+                    <div class="vision-text">
+                        <h2>¿Qué nos llevó a crear nuestra app?</h2>
+                        <p>Una visión hacia el futuro: democratizar la educación y hacer accesible el aprendizaje de calidad para todos. Identificamos los siguientes desafíos clave:</p>
+                    </div>
+                    <div class="challenge-boxes">
+                        <div class="challenge-box">
+                            <span class="symbol">📘</span>
+                            <div class="challenge-name">Acceso limitado a recursos educativos actualizados</div>
+                            <p class="challenge-info">Muchos estudiantes no tienen a su disposición materiales de estudio modernos y útiles.</p>
+                        </div>
+                        <div class="challenge-box">
+                            <span class="symbol">🌐</span>
+                            <div class="challenge-name">Falta de conexiones con oportunidades académicas</div>
+                            <p class="challenge-info">A menudo, las oportunidades de becas o tutorías no llegan a estudiantes de áreas remotas.</p>
+                        </div>
+                        <div class="challenge-box">
+                            <span class="symbol">🧑‍🤝‍🧑</span>
+                            <div class="challenge-name">Carencia de una comunidad de aprendizaje colaborativo</div>
+                            <p class="challenge-info">La colaboración y el apoyo entre pares es fundamental para un aprendizaje enriquecedor.</p>
+                        </div>
+                        <div class="challenge-box">
+                            <span class="symbol">🎯</span>
+                            <div class="challenge-name">Desconocimiento de becas y recursos</div>
+                            <p class="challenge-info">
+                                Un gran número de estudiantes no sabe cómo acceder a becas, programas de mentores o recursos complementarios que podrían mejorar su experiencia educativa.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="caja-objetivo">
-                    <img src="a" alt="Garantizar la inclusión" class="objetivo-img">
-                    <div class="objetivo-content">
-                        <div class="objetivo-name">Garantizar la inclusión</div>
-                        <p class="objetivoinfo">
-                            Nos enfocamos en la inclusión de aquellos estudiantes que provienen de contextos desfavorecidos. Nuestra plataforma les facilita el acceso a información y oportunidades que les ayudarán a superar barreras económicas o geográficas.
-                        </p>
+
+                <div class="objetivo" id="objetivo">
+                    <div class="titulo-obj">
+                        <h2>Objetivos</h2>
                     </div>
-                </div>
-                <div class="caja-objetivo">
-                    <img src="a" alt="Fomentar el uso de tecnologías educativas" class="objetivo-img">
-                    <div class="objetivo-content">
-                        <div class="objetivo-name">Fomentar el uso de tecnologías educativas</div>
-                        <p class="objetivoinfo">
-                            Apostamos por la tecnología como una herramienta clave en el aprendizaje. Queremos que los estudiantes se familiaricen con las herramientas tecnológicas que hoy en día son esenciales en el ámbito académico.
-                        </p>
+                    <div class="caja-obje">
+                        <div class="caja-objetivo">
+                            <img src="assets/images/goal1.jpg" alt="Facilitar el acceso a oportunidades académicas" class="objetivo-img">
+                            <div class="objetivo-content">
+                                <div class="objetivo-name">Facilitar el acceso a oportunidades académicas</div>
+                                <p class="objetivoinfo">Queremos que los estudiantes de secundaria y universitarios encuentren oportunidades de becas y recursos educativos sin importar su ubicación.</p>
+                            </div>
+                        </div>
+                        <div class="caja-objetivo">
+                            <img src="assets/images/goal2.jpg" alt="Fomentar la inclusión" class="objetivo-img">
+                            <div class="objetivo-content">
+                                <div class="objetivo-name">Fomentar la inclusión</div>
+                                <p class="objetivoinfo">Crear una red inclusiva donde los estudiantes, sin importar su contexto, puedan acceder a recursos y apoyo.</p>
+                            </div>
+                        </div>
+                        <div class="caja-objetivo">
+                            <img src="assets/images/goal3.jpg" alt="Impulsar el aprendizaje colaborativo" class="objetivo-img">
+                            <div class="objetivo-content">
+                                <div class="objetivo-name">Impulsar el aprendizaje colaborativo</div>
+                                <p class="objetivoinfo">Proporcionar un espacio donde los estudiantes puedan aprender juntos y apoyarse mutuamente.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    
-        <div class="right-column">
-            <div class="benefits">
-                <h2>Beneficios</h2>
-                <ul>
-                    <li>🔎 Accede a becas y oportunidades exclusivas</li>
-                    <li>📚 Comparte y descarga material de estudio</li>
-                    <li>🤝 Únete a una comunidad de apoyo</li>
-                    <li>🎯 Obtén asesoría personalizada para alcanzar tus metas académicas</li>
-                </ul>
-            </div>
-    
-            <div class="functionalities">
-                <h2>Funcionalidades</h2>
-                <ul>
-                    <li>🔔 Notificaciones en tiempo real sobre nuevas oportunidades académicas</li>
-                    <li>📝 Foros de discusión para resolver dudas y compartir consejos</li>
-                    <li>📥 Recursos descargables y actualizados para mejorar tu rendimiento académico</li>
-                    <li>💬 Chat con mentores y expertos en distintas áreas</li>
-                </ul>
+
+            <div class="right-content">
+                <div class="benefits">
+                    <h2>Beneficios</h2>
+                    <ul>
+                        <li>🔎 Accede a becas y oportunidades exclusivas</li>
+                        <li>📚 Comparte y descarga material de estudio</li>
+                        <li>🤝 Conéctate con tutores y compañeros de apoyo</li>
+                        <li>🌐 Acceso a programas de intercambio de conocimientos</li>
+                        <li>📊 Mejora tu rendimiento con herramientas personalizadas de seguimiento académico</li>
+                    </ul>
+                </div>
+                <div class="functionalities">
+                    <h2>Funcionalidades</h2>
+                    <ul>
+                        <li>🔔 Notificaciones en tiempo real sobre nuevas oportunidades académicas</li>
+                        <li>📝 Foros de discusión para resolver dudas y compartir consejos</li>
+                        <li>👥 Grupos de estudio virtuales para colaboración en temas específicos</li>
+                        <li>📅 Agenda académica para organizar tareas y fechas importantes</li>
+                        <li>💡 Consejos de expertos y recursos de autoaprendizaje en diversas áreas</li>
+                    </ul>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -164,7 +153,5 @@
     <footer>
         <p>© 2024 STARS HUB. Todos los derechos reservados.</p>
     </footer>
-
-    <script src="assets/JS/inicio.js"></script>
 </body>
 </html>

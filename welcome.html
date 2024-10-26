@@ -10,52 +10,66 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" aria-label="todolist">Start Hub</a>
+        <div class="card-body d-flex justify-content-between">
+            <!-- Menu icon -->
             <div class="d-flex">
                 <button id="logout" class="btn btn-outline-success" aria-label="Cerrar sesión">Salir</button>
             </div>
-    
-                <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                <i class="bi bi-list"></i>
-                                <img src="https://via.placeholder.com/100" class="userAvatar img-fluid dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            
-                
-                                <div class="dropdown-menu    dropdown-menu--lg">
-                                    <div class="dropdown-menu_header">
-                                        <img src="https://via.placeholder.com/100" class="float-right">
-                                        <span class="userName"></span>!
-                                    </div>
-                        
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                
-                            
-                            </div>
-                        </div>    
-                                      
+            <div>
+                <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavLargeCollapse" aria-controls="sidenavLargeCollapse" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="bi bi-list align-self-center"></i>
+                </button>
+                <div class="navbar-collapse collapse show" id="sidenavLargeCollapse">
+                    <!-- Nav -->
+                    <!-- <div class="nav-pills mb-xl-7">
+                        <div class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="material-symbols-outlined me-3">Welcome</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="material-symbols-outlined me-3">Oportunidades</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="material-symbols-outlined me-3">Recursos</span>
+                            </a>
+                        </div>
+                    </div> -->
                 </div>
-
-        </div>
-                
+            </div>
+    
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <!-- Image account -->
+                <img src="Recursos/usuario.png" class="userAvatar img-fluid" data-bs-toggle="dropdown" aria-expanded="false">
+    
+                <!-- Dropdown menu -->
+                <div class="dropdown-menu dropdown-menu-end">
+                    <div class="dropdown-header">
+                        <img src="Recursos/usuario.png" class="float-right">
+                        <span class="userName"></span>
+                    </div>
+                    <!-- Dropdown options -->
+                    <a class="dropdown-item" href="#">
+                        <span>my profile</span>
+                        <i class="bi bi-person-fill float-right"></i>
+                    </a>
+                    <a class="dropdown-item" href="#" id="logout" aria-label="Cerrar sesión">salir</a>
+                </div>
             </div>
         </div>
     </nav>
-
     <div class="container p-4">
         <div class="row">
             <div class="col-md-6">
-                <div class="card"><img src="https://via.placeholder.com/100" alt="Avatar de usuario" class="userAvatar rounded-circle mb-3" width="100" height="100">
-                    <h2>¡Hola, <span class="userName"></span>!</h2>
-                    <p>Has iniciado sesión exitosamente.</p>
-                                     </div>
-                                     <br>
-                                     <br>
                 <div class="card">
                     <br>
+                    <img src="Recursos/usuario.png" alt="Avatar de usuario" class="userAvatar rounded-circle mb-3" width="30" height="30">
+                    <p class="userName"></p>
+                       
                     <h1 class="h4">Add New Ask</h1>
                     <div class="card-body">
                         <form id="task-form" aria-labelledby="task-form-heading">
@@ -76,8 +90,16 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="card"><img src="Recursos/usuario.png" alt="Avatar de usuario" class="userAvatar rounded-circle mb-3" width="100" height="100">
+                    <h2>¡Hola, <span class="userName"></span>!</h2>
+                    <p>Has iniciado sesión exitosamente.</p>
+                                     </div>
                 <div id="tasks-container" role="list" aria-live="polite">
+                    
                     <div id="loadingSpinner" style="display: none;">
+                        <br>
+                        <br>
+                        <br>
                         <label id="cargando">Cargando  </label>
                         <img id="spinnerImage" src="Recursos/cargando.png" alt="Cargando...">
                     </div>

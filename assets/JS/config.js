@@ -65,12 +65,14 @@ export function loginWithGoogle() {
 }
 
 // Función para agregar una tarea
-export function saveTask(title, description, uid) {
+export function saveTask(title, description, uid, userName, userAvatar) {
     console.log("Saving task:", title, description);
     return addDoc(collection(db, 'tasks'), {
         title: title,
         description: description,
-        uid: uid
+        uid: uid,
+        userName: userName,
+        userAvatar: userAvatar
     });
 }
 
@@ -105,11 +107,3 @@ export function deleteTask(id) {
 
 // Exportar autenticación, base de datos y almacenamiento
 export { auth, db, storage };
-
-// Función para subir un archivo a Firebase Storage
-export async function uploadFile(file) {
-    const storageRef = ref(storage, `files/${file.name}`); // Ruta en Firebase Storage
-    await uploadBytes(storageRef, file); // Carga el archivo
-    const fileURL = await getDownloadURL(storageRef); // Obtiene la URL de descarga
-    return fileURL; // Devuelve la URL
-}

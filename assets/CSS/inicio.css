@@ -155,7 +155,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background-color: #e1f5fe;
+    background-color: white;
     padding: 50px 20px;
     text-align: center;
 }
@@ -233,35 +233,36 @@ nav ul li a:hover {
 
 .vision-future-container {
     display: flex;
-    margin-top: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
 }
 
 .vision-text {
-    width: 50%;
-    padding-right: 20px;
+    margin-bottom: 20px;
 }
 
 .challenge-boxes {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    justify-content: flex-start;
-    width: 50%;
+    width: 100%;
 }
 
 .challenge-box {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    background-color: #f5f5f5;
-    width: 200px; 
-    height: 200px; 
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    position: relative;
-    transition: background-color 0.3s;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
+
 
 .challenge-box:hover {
     background-color: #e0f7fa;
@@ -279,19 +280,32 @@ nav ul li a:hover {
     margin-bottom: 5px; 
 }
 
+.challenge-box {
+    position: relative;
+    overflow: hidden;
+}
+
 .challenge-info {
-    opacity: 0; 
-    transition: opacity 0.3s;
-    font-size: 14px;
-    display: flex;
+    display: none; /* Oculta inicialmente */
     position: absolute;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255); /* Fondo semitransparente */
+    width: 80%; /* Ajusta el ancho según sea necesario */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
 }
 
 .challenge-box:hover .challenge-info {
-    opacity: 1; 
+    display: flex; /* Muestra el contenido al hacer hover */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .challenge-box:hover .symbol,
 .challenge-box:hover .challenge-name {
@@ -384,5 +398,184 @@ footer {
     padding: 20px;
     background-color: #f04e23;;
     color: white;
+}
+
+
+.contenedor-central {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.left-content {
+    width: 65%;
+}
+
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #def0fb;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo p, #star-icon {
+    font-size: 1.5em;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.auth-buttons .login-btn {
+    color: black;
+}
+
+.register-btn {
+    background-color: #008CBA;
+}
+
+/* Contenido principal */
+.main-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.left-content {
+    flex: 2;
+}
+
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sección de descripción y carrusel */
+.carousel-description-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    width: 300px;
+}
+
+.description {
+    padding-left: 20px;
+}
+
+/* Vision de futuro */
+.vision-future-container {
+    margin: 20px 0;
+}
+
+.challenge-box {
+    display: flex;
+    gap: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Objetivos */
+.objetivo {
+    padding: 20px 0;
+}
+
+.caja-obje {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.caja-objetivo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.objetivo-img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Beneficios y funcionalidades */
+.benefits, .functionalities {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.benefits h2, .functionalities h2 {
+    color: #4CAF50;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #008CBA;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.contenedor-derecho {
+    width: 35%;
 }
 

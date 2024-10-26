@@ -9,10 +9,13 @@ const btnLogout = document.getElementById('logout');
 let editStatus = false; // Bandera para el estado de edición
 let id = ''; // ID de la tarea que se está editando
 
+
+
 window.addEventListener('DOMContentLoaded', async function () {
     const loadingSpinner = document.getElementById('loadingSpinner');
 
     loadingSpinner.style.display = 'block';
+
     
     onAuthStateChanged(auth, function (user) {
         if (user) {
@@ -26,31 +29,30 @@ window.addEventListener('DOMContentLoaded', async function () {
                 tasksContainer.innerHTML = '';
 
                 querySnapshot.forEach(doc => {
-                    const task = doc.data();
-                    const taskOwner = task.uid; // El UID del creador de la tarea
-                    const currentUser = user.uid; // El UID del usuario autenticado
+                    const task = doc.data();                    
+                    const taskOwner = task.uid; // UID del creador de la tarea
+                    const currentUser = auth.currentUser.uid;
+                    const isCurrentUserOwner = taskOwner === currentUser;
 
-                    if (taskOwner === currentUser) {
-                        tasksContainer.innerHTML += `
-                        <div class="card card-body mt-2">
-                            <h3 class="h5">${task.title}</h3>
-                            <p>${task.description}</p>
-                            <div>
-                                <button class='btn btn-warning btn-edit' data-id='${doc.id}'><i class="bi bi-pencil-square"></i></button>
-                                <button class='btn btn-danger btn-delete' data-id='${doc.id}'><i class="bi bi-trash3-fill"></i></button>
-                            </div>
+                    tasksContainer.innerHTML += `
+                    <div class="card card-body mt-2">
+                        <div class="d-flex align-items-center">
+                            <img src="${task.userAvatar}" alt="${task.userName}" class="rounded-circle" width="40">
+                            <h5 class="ms-2">${task.userName}</h5>
                         </div>
-                        `;
-                    } else {
-                        tasksContainer.innerHTML += `
-                        <div class="card card-body mt-2">
-                            <h3 class="h5">${task.title}</h3>
-                            <p>${task.description}</p>
-                        </div>
-                        `;
-                    }
+                        <h3 class="h5 mt-2">${task.title}</h3>
+                        <p>${task.description}</p>
+                        ${isCurrentUserOwner ? `
+                        <div>
+                            <button class='btn btn-warning btn-edit' data-id='${doc.id}'>
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button class='btn btn-danger btn-delete' data-id='${doc.id}'>
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </div>` : ''}
+                    </div>`
                 });
-
                 // Ocultar el spinner después de cargar las tareas
                 loadingSpinner.style.display = 'none';
 
@@ -88,17 +90,6 @@ window.addEventListener('DOMContentLoaded', async function () {
     });
 });
 
-
-// onAuthStateChanged para manejar la autenticación
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log("Usuario autenticado:", user);
-    } else {
-        console.log("Usuario no autenticado.");
-        window.location.href = 'index.html'; // Redirige si no hay usuario
-    }
-});
-
 // Cerrar sesión
 btnLogout.addEventListener('click', () => {
     signOut(auth)
@@ -122,7 +113,9 @@ taskForm.addEventListener('submit', (event) => {
 
     if (user) {
         const uid = user.uid; // Obtener el UID del usuario
-
+        const userName = user.displayName || user.email.split('@')[0]; // Obtener el nombre del usuario o usar el email si no hay nombre
+        const userAvatar = user.photoURL || './Recursos/usuario.png'; // Obtener el avatar o usar un avatar por defecto
+        
         if (editStatus) {
             // Actualizar tarea existente
             updateTask(id, { title, description });
@@ -130,14 +123,15 @@ taskForm.addEventListener('submit', (event) => {
             taskForm['btn-task-save'].innerText = 'Save';
             btnCancel.style.display = 'none';
         } else {
-            // Guardar nueva tarea con el UID del usuario
-            saveTask(title, description, uid);
+            // Guardar nueva tarea con el UID, nombre y avatar del usuario
+            saveTask(title, description, uid, userName, userAvatar);
         }
         taskForm.reset();
     } else {
-        alert("Debes iniciar sesión para poder guardar tareas.");
+        alert("Debes iniciar sesión para poder guardar tareas."); 
     }
 });
+
 
 // Botón de cancelar edición
 btnCancel.addEventListener('click', function () {
@@ -146,35 +140,4 @@ btnCancel.addEventListener('click', function () {
     id = '';
     taskForm['btn-task-save'].innerText = 'Save';
     btnCancel.style.display = 'none';
-});
-
-auth.onAuthStateChanged(function (user) {
-    const defaultAvatar = "https://via.placeholder.com/100"; // Avatar por defecto
-    const avatars = document.getElementsByClassName('userAvatar');
-    const usernames = document.getElementsByClassName('userName');
-
-    // Verificamos si hay un usuario autenticado
-    if (user) {
-        const displayName = user.displayName || user.email.split('@')[0];
-        const photoURL = user.photoURL || defaultAvatar;
-
-        // Actualizamos el nombre del usuario en todos los elementos con la clase userName
-        Array.from(usernames).forEach(username => {
-            username.textContent = displayName;
-        });
-
-        // Recorremos todas las imágenes con la clase userAvatar y les asignamos la URL de la imagen
-        Array.from(avatars).forEach(avatar => {
-            avatar.setAttribute('src', photoURL);
-        });
-    } else {
-        // Si no hay usuario, eliminamos el nombre y mostramos la imagen por defecto
-        Array.from(usernames).forEach(username => {
-            username.textContent = '';
-        });
-
-        Array.from(avatars).forEach(avatar => {
-            avatar.setAttribute('src', defaultAvatar);
-        });
-    }
 });

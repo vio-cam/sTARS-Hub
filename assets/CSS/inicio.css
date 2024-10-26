@@ -16,9 +16,43 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f04e23;
+    background-color: #def0fb;
 }
 
+#stars-word, #hub-word{    
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    animation: pulsecolor 1.25s infinite;
+  }
+  
+  #stars-word {    
+      color: #38b6ff;
+      font-weight: 800;
+      font-style: normal;
+      letter-spacing: -3px;
+      line-height: 45px;
+      font-size: 3rem;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  #hub-word {
+      font-weight: 600;
+      color: #ee7e25;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+  }
+  
+  #logo {
+    max-width: 110px;
+    height: auto;
+    animation: rubberBand 2.5s ease-in infinite;
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
 #stars-word, #hub-word{    
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -80,7 +114,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #1f1f1f;
     text-decoration: none;
     font-weight: bold;
 }
@@ -110,8 +144,8 @@ nav ul li a:hover {
 }
 
 .auth-buttons .register-btn {
-    background-color: #f04e23;
-    color: white;
+    background-color: #ffff4b;
+    color: #ff7043;
 }
 
 .auth-buttons .register-btn:hover {

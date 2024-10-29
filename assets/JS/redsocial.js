@@ -25,18 +25,24 @@ window.addEventListener('DOMContentLoaded', async () => {
             
 
             saludoContainer.innerHTML = `
-            <div class="d-flex align-items-center">
-            <div class="card text-center p-4 shadow-lg" style="width: 18rem;">
-                <div class="user-circle mx-auto mb-3">
-
-                <img src="${userAvatar}" alt="${userName}" class="rounded-circle" width="40">
-                <h4 class="card-title">
-                <span class="ms-2">Hola, ${userName}</span></h4>
-
-                </div>
-                <p class="card-text text-muted">Bienvenido de nuevo</p>
-                </div>
-            `;
+                <div class="text-center p-4  mp-0" style="width: 100%;">
+                        <div class="user-circle mx-auto mb-0">
+                            <img src="${userAvatar}" alt="${userName}" class="rounded-circle" width="40">
+                            <h4 class="card-title">
+                                <span class="ms-2">Hola, ${userName}</span>
+                            </h4>
+                        </div>
+                        <div class="text-center">
+                                        <button class="btn" data-id="">
+                                            <i class="">Organizaciones</i>
+                                        </button>
+                                        <br>
+                                        <button class="btn" data-id="$">
+                                            <i class=""> Perfil</i>
+                                        </button>
+                                      
+                                    </div>`;   
+            
             onGetTasks((querySnapshot) => {
                 tasksContainer.innerHTML = ''; 
                 querySnapshot.forEach((doc) => {
@@ -44,37 +50,40 @@ window.addEventListener('DOMContentLoaded', async () => {
                     const isOwner = task.uid === user.uid;    
                     const createdAt = task.createdAt.toDate().toLocaleString();
                     tasksContainer.innerHTML += `
-                        <div id="comentario" class="card my-3 shadow-sm" style="width: 600px; height: 500px; margin: 0 auto;">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="${task.userAvatar}" alt="${task.userName}" class="rounded-circle me-3" width="50" height="50">
-                                    <div>
-                                        <h5 class="card-title mb-0">${task.userName}</h5>
-                                        <small class="text-muted">${createdAt}</small>
-                                    </div>
+                    <div id="comentario" class="card my-3 shadow-sm" style="width: 700px; margin: 0 auto;">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="${task.userAvatar}" alt="${task.userName}" class="rounded-circle me-3" width="50" height="50">
+                                <div>
+                                    <h5 class="card-title mb-0 ml-2">${task.userName}</h5>
+                                    <small class="text-muted ml-2">${createdAt}</small>
                                 </div>
-                                <h3 class="h5" id="titulo">${task.title}</h3>
-                                <p class="card-text mt-2" id="descripción">${task.description}</p>
-
-                                <!-- Imagen principal estilo IG -->
+                                ${isOwner ? `
+                                    <div class="mt-3 text-left botones">
+                                    <p>     </p>
+                                        <button class="btn  btn-edit" data-id="${doc.id}">
+                                            <i class="bi bi-pencil-square"> Editar</i>
+                                        </button>
+                                        <button class="btn btn-delete" data-id="${doc.id}">
+                                            <i class="bi bi-trash3-fill"> Eliminar</i>
+                                        </button>
+                                    </div>` : ''}
+                            </div>
+                            <h3 class="h5" id="titulo">${task.title}</h3>
+                            <p class="card-text mt-2" id="descripción">${task.description}</p>
+                
+                            ${task.imageUrl ? `
                                 <div class="card mt-3 text-center" style="max-width: 500px; margin: 0 auto;">
                                     <img src="${task.imageUrl}" alt="Imagen de ${task.userName}" class="img-fluid rounded" style="width: 500px; height: 300px; object-fit: cover;">
                                 </div>
-                                </div>
-                            </div>
-                            
+                            ` : ''}
+                
                         </div>
-
-                            ${isOwner ? `
-                            <div class="mt-3 text-center botones">
-                                <button class="btn btn-warning btn-edit" data-id="${doc.id}">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button class="btn btn-danger btn-delete" data-id="${doc.id}">
-                                    <i class="bi bi-trash3-fill"></i>
-                                </button>
-                            </div>` : ''}
-                        </div>`;
+                    </div>
+                
+                    
+                </div>`;
+                
                 });
 
                 loadingSpinner.style.display = 'none';
@@ -138,7 +147,7 @@ taskForm.addEventListener('submit', async (event) => {
     if (user) {
         const uid = user.uid;
         if (editStatus) {
-            await updateTask(taskId, { title, description });
+            await updateTask(id, { title, description,  });
             editStatus = false;
             taskForm['btn-task-save'].innerText = 'Save';
             btnCancel.style.display = 'none';
@@ -154,7 +163,7 @@ taskForm.addEventListener('submit', async (event) => {
 btnCancel.addEventListener('click', () => {
     taskForm.reset();
     editStatus = false;
-    taskId = '';
+    id = '';
     taskForm['btn-task-save'].innerText = 'Save';
     btnCancel.style.display = 'none';
 });

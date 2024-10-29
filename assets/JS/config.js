@@ -21,35 +21,33 @@ const provider = new GoogleAuthProvider();
 
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
-        .then(() => window.location.href = 'welcome.html')
+        .then(() => window.location.href = 'redsocial.html')
         .catch((error) => alert("Error al registrar: " + error.message));
 }
 
 export function loginUser(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
-        .then(() => window.location.href = 'welcome.html')
-        .catch((error) => alert("Error al iniciar sesión: " + error.message));
+        .then(() => window.location.href = 'redsocial.html')
+        .catch((error) => alert("Error al inicisar sesión: " + error.message));
 }
 
 export function loginWithGoogle() {
     return signInWithPopup(auth, provider)
-        .then(() => window.location.href = 'welcome.html')
+        .then(() => window.location.href = 'redsocial.html')
         .catch((error) => alert("Error al iniciar sesión con Google: " + error.message));
 }
 
 export function createTask(title, description, uid, userName, userAvatar, image) {
-    let imageUrl = null;
-
     if (image) {
         const storageRef = ref(storage, `images/${image.name}`);
-        return uploadBytes (storageRef, image).then (function(snapshot){ 
-            return getDownloadURL(snapshot.ref);
-        }).then (function(url){
-            imageUrl = url
-            return savePost (title, description, uid, userName, userAvatar, imageUrl)
-        })
+        return uploadBytes(storageRef, image)
+            .then(snapshot => getDownloadURL(snapshot.ref))
+            .then(url => savePost(title, description, uid, userName, userAvatar, url));
+    } else {
+        return savePost(title, description, uid, userName, userAvatar, null);
     }
 }
+
 function savePost(title, description, uid, userName, userAvatar, imageUrl) {
     const post = {
         title: title,

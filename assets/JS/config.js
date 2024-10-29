@@ -1,10 +1,8 @@
-// Importar las funciones necesarias de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js"; // Importar Firebase Storage
+import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, deleteDoc, doc, updateDoc, arrayUnion, arrayRemove} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js";
 
-// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCvxv85SHoDCIqYyFGy04eplrAMkjZVLoU",
     authDomain: "proyecto-u4-1bbe1.firebaseapp.com",
@@ -15,95 +13,77 @@ const firebaseConfig = {
     measurementId: "G-N3KJVZR8MC"
 };
 
-// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-
-// Inicializar servicios de Firebase
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app); // Inicializar Firebase Storage
+const storage = getStorage(app);
 const provider = new GoogleAuthProvider();
 
-// Función para registrar un nuevo usuario
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log("Registro exitoso. ¡Bienvenido!");
-            window.location.href = 'welcome.html';
-        })
-        .catch((error) => {
-            console.error("Error al registrar:", error.code, error.message);
-            alert("Error al registrar: " + error.message);
-        });
+        .then(() => window.location.href = 'welcome.html')
+        .catch((error) => alert("Error al registrar: " + error.message));
 }
 
-// Función para iniciar sesión
 export function loginUser(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log(userCredential);            
-            console.log("Inicio de sesión exitoso. ¡Bienvenido!");
-            window.location.href = 'welcome.html';
-        })
-        .catch((error) => {
-            console.error("Error al iniciar sesión:", error.code, error.message);
-            alert("Error al iniciar sesión: " + error.message);
-        });
+        .then(() => window.location.href = 'welcome.html')
+        .catch((error) => alert("Error al iniciar sesión: " + error.message));
 }
 
-// Función para iniciar sesión con Google
 export function loginWithGoogle() {
     return signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log("Inicio de sesión con Google exitoso. ¡Bienvenido!", result.user);
-            window.location.href = 'welcome.html';
-        })
-        .catch((error) => {
-            console.error("Error al iniciar sesión con Google:", error.code, error.message);
-            alert("Error al iniciar sesión con Google: " + error.message);
-        });
+        .then(() => window.location.href = 'welcome.html')
+        .catch((error) => alert("Error al iniciar sesión con Google: " + error.message));
 }
 
-// Función para agregar una tarea
-export function saveTask(title, description, uid, userName, userAvatar) {
-    console.log("Saving task:", title, description);
-    return addDoc(collection(db, 'tasks'), {
+export function createTask(title, description, uid, userName, userAvatar, image) {
+    let imageUrl = null;
+
+    if (image) {
+        const storageRef = ref(storage, `images/${image.name}`);
+        return uploadBytes (storageRef, image).then (function(snapshot){ 
+            return getDownloadURL(snapshot.ref);
+        }).then (function(url){
+            imageUrl = url
+            return savePost (title, description, uid, userName, userAvatar, imageUrl)
+        })
+    }
+}
+function savePost(title, description, uid, userName, userAvatar, imageUrl) {
+    const post = {
         title: title,
         description: description,
         uid: uid,
         userName: userName,
-        userAvatar: userAvatar
-    });
+        userAvatar: userAvatar,
+        imageUrl: imageUrl,
+        createdAt: new Date(),
+        likes: []
+    };
+    return addDoc(collection(db, 'tasks'), post);
 }
-
-// Función para obtener todas las tareas
 export function getTasks() {
-    console.log("Fetching tasks list");
     return getDocs(collection(db, 'tasks'));
 }
 
-// Función para escuchar en tiempo real los cambios en las tareas
 export function onGetTasks(callback) {
     return onSnapshot(collection(db, 'tasks'), callback);
 }
 
-// Función para obtener una tarea específica
 export function getTask(id) {
-    console.log("Fetching task:", id);
     return getDoc(doc(db, 'tasks', id));
 }
 
-// Función para actualizar una tarea
 export function updateTask(id, newFields) {
-    console.log("Updating Task:", id);
     return updateDoc(doc(db, 'tasks', id), newFields);
 }
 
-// Función para eliminar una tarea
 export function deleteTask(id) {
-    console.log("Deleting task:", id);
     return deleteDoc(doc(db, "tasks", id));
 }
 
-// Exportar autenticación, base de datos y almacenamiento
+
+
+
 export { auth, db, storage };

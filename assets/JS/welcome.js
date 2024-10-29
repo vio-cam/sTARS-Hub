@@ -10,7 +10,7 @@ const saludoContainer = document.getElementById('saludo');
 const postImage = document.getElementById('task-file');
 
 let editStatus = false; 
-let taskId = ''; 
+let id = ''; 
 
 window.addEventListener('DOMContentLoaded', async () => {
     loadingSpinner.style.display = 'block';
@@ -23,8 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             const userName = user.displayName || user.email.split('@')[0];
             const userAvatar = user.photoURL || './Recursos/usuario.png';
             
-    
-            // Crear el HTML para mostrar el nombre y el avatar del usuario
+
             saludoContainer.innerHTML = `
             <div class="d-flex align-items-center">
             <div class="card text-center p-4 shadow-lg" style="width: 18rem;">
@@ -38,9 +37,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 <p class="card-text text-muted">Bienvenido de nuevo</p>
                 </div>
             `;
-    
-            // Resto del código...
-            console.log("Usuario autenticado:", user);
             onGetTasks((querySnapshot) => {
                 tasksContainer.innerHTML = ''; 
                 querySnapshot.forEach((doc) => {
@@ -70,7 +66,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                         </div>
 
                             ${isOwner ? `
-                            <div class="mt-3 text-center">
+                            <div class="mt-3 text-center botones">
                                 <button class="btn btn-warning btn-edit" data-id="${doc.id}">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
@@ -83,29 +79,35 @@ window.addEventListener('DOMContentLoaded', async () => {
 
                 loadingSpinner.style.display = 'none';
 
-                document.querySelectorAll('.btn-delete').forEach((btn) =>
-                    btn.addEventListener('click', async (e) => {
-                        const id = e.target.dataset.id;
-                        await deleteTask(id);
-                    })
-                );
-
-                document.querySelectorAll('.btn-edit').forEach((btn) =>
-                    btn.addEventListener('click', async (e) => {
-                        const id = e.target.dataset.id;
-                        const doc = await getTask(id);
-                        const task = doc.data();
-
-                        taskForm['task-title'].value = task.title;
-                        taskForm['task-description'].value = task.description;
-
-                        editStatus = true;
-                        taskId = doc.id;
-                        taskForm['btn-task-save'].innerText = 'Update';
-                        btnCancel.style.display = 'inline';
-                    })
-                );
-            });
+                  // Listener para botones de eliminar
+                  const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
+                  btnsDelete.forEach(btn => {
+                      btn.addEventListener('click', function (event) {
+                          const taskId = event.target.dataset.id;
+                          deleteTask(taskId);
+                      });
+                  });
+  
+                  // Listener para botones de editar
+                  const btnsEdit = tasksContainer.querySelectorAll('.btn-edit');
+                  btnsEdit.forEach(btn => {
+                      btn.addEventListener('click', async function (event) {
+                          const taskId = event.target.dataset.id;
+                          const doc = await getTask(taskId);
+                          const task = doc.data();
+  
+                          taskForm['task-title'].value = task.title;
+                          taskForm['task-description'].value = task.description;
+  
+                          editStatus = true;
+                          id = doc.id;
+                          console.log(doc.id);
+                          
+                          taskForm['btn-task-save'].innerText = 'Update';
+                          btnCancel.style.display = 'inline'; 
+                      });
+                  });
+              });
         } else {
             console.log("Usuario no autenticado.");
             window.location.href = 'index.html';

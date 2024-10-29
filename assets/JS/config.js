@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, deleteDoc, doc, updateDoc, arrayUnion, arrayRemove} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, deleteDoc, doc, updateDoc} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -59,10 +59,12 @@ function savePost(title, description, uid, userName, userAvatar, imageUrl) {
         userAvatar: userAvatar,
         imageUrl: imageUrl,
         createdAt: new Date(),
-        likes: []
+        // likes: []
     };
     return addDoc(collection(db, 'tasks'), post);
 }
+
+
 export function getTasks() {
     return getDocs(collection(db, 'tasks'));
 }

@@ -5,31 +5,38 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-
 }
+
 
 .container {
     max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 10% auto;
+    padding: 20px 40px;
     background-color: #def0fb;
-    
+    border-radius: 3px; 
+    border: 1px solid rgba(31, 31, 31, .5);
 }
 
-.navbar {
-    background-color: #def0fb;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    border-radius: 5px;
+#btn-ingresar button, #btn-registrarse button {
+    width: 100%;
 }
 
-.navbar a{
-    color:red;
-    text-align: center;
-    padding: 14px 20px;
+#btn-ingresar button {
+    background-color: #ffff4b;
+    color: red;
+}
+
+#btn-registrarse #loginGoogleBtn {
+    background-color: #ee7e25;
+    color: #fff;
+}
+
+#showRegisterForm span {
     text-decoration: none;
-    transition: background-color 0.3s;
+}
+
+#correo-container {
+    margin-bottom: -10px;
 }
 
 #stars-word, #hub-word{    
@@ -57,9 +64,17 @@ body {
       font-size: .6rem;
       text-transform: uppercase;
       letter-spacing: 4px;
-      transform: translate(18%, 0%);
+      transform: translate(10%, 0%);
   }
-  
+
+  #logo-container {
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    scale: 1.3;
+  }
+
+
   #logo {
     max-width: 110px;
     height: auto;
@@ -70,11 +85,17 @@ body {
     text-align: center;
   }
   
+#logo div {
+    background-color: #38b6ff;
+    width: 10px;
+    height: 7px;
+    transform: translate(700%, -250%);
+}
   #star-icon {
     position: absolute;
-    color: white;
-    font-size: .6rem;
-    transform: translate(170%, -150%);
+    color: #def0fb;
+    font-size: .65rem;
+    transform: translate(-1%, -130%);
   }
   
 @keyframes pulsecolor {
@@ -82,3 +103,4 @@ body {
       text-shadow: 0px 0px 30px #c4c0f8;
       }
 }
+

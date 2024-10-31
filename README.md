@@ -1,4 +1,4 @@
-# Red Social - Stars Hub 
+# Red Social -⭐ Stars Hub ⭐
 ¡Tu camino a una educación de calidad comienza aquí! 🚀
 Nuestra plataforma conecta a estudiantes con oportunidades académicas,
 recursos de estudio y apoyo entre compañeros. Todo en un solo lugar, 
@@ -15,17 +15,17 @@ tienen un gran sueño: ser profesionales en las áreas que más les apasionan.
 Sin embargo, este camino está lleno de barreras que a menudo dificultan alcanzar 
 sus metas académicas. Entre los desafíos más comunes se encuentran:
 
-__Acceso limitado a recursos educativos actualizados:__ Muchos estudiantes 
+__💫Acceso limitado a recursos educativos actualizados:__ Muchos estudiantes 
 no tienen a su disposición materiales de estudio modernos y útiles.
 
-__Oportunidades académicas restringidas:__ No todos conocen las becas,
+__💫Oportunidades académicas restringidas:__ No todos conocen las becas,
 programas de intercambio o mentorías que podrían abrirles puertas.
 
-__Falta de apoyo y colaboración:__ Muchos jóvenes no cuentan con un 
+__💫Falta de apoyo y colaboración:__ Muchos jóvenes no cuentan con un 
 entorno donde puedan intercambiar conocimientos o recibir ayuda en 
 sus estudios.
 
-__Desconocimiento de becas y recursos:__ Un gran número de estudiantes 
+__💫Desconocimiento de becas y recursos:__ Un gran número de estudiantes 
 no sabe cómo acceder a becas, programas de mentores o recursos 
 complementarios que podrían mejorar su experiencia educativa.
 
@@ -35,21 +35,21 @@ complementarios que podrían mejorar su experiencia educativa.
 Los objetivos que nos impulsan a continuar 
 con este proyecto son claros y concisos:
 
-**-Facilitar el acceso a oportunidades académicas:** Queremos que los 
+**🌟Facilitar el acceso a oportunidades académicas:** Queremos que los 
 estudiantes de secundaria y universitarios tengan en un solo lugar 
 todo lo que necesitan: desde recursos académicos, becas y tutorías, 
 hasta programas de intercambio de conocimientos y recomendaciones valiosas.
 
-**-Promover el aprendizaje colaborativo:** Nuestra app crea un espacio 
+**🌟Promover el aprendizaje colaborativo:** Nuestra app crea un espacio 
 seguro donde los estudiantes pueden compartir recursos educativos, 
 consejos de estudio, resolver dudas y trabajar en conjunto.
 
-**-Garantizar la inclusión:** Nos enfocamos en la inclusión de aquellos
+**🌟Garantizar la inclusión:** Nos enfocamos en la inclusión de aquellos
 estudiantes que provienen de contextos desfavorecidos. Nuestra 
 plataforma les facilita el acceso a información y oportunidades que 
 les ayudarán a superar barreras económicas o geográficas.
 
-**-Fomentar el uso de tecnologías educativas:** Apostamos por la 
+**🌟Fomentar el uso de tecnologías educativas:** Apostamos por la 
 tecnología como una herramienta clave en el aprendizaje. Queremos 
 que los estudiantes se familiaricen con las herramientas tecnológicas
 que hoy en día son esenciales en el ámbito académico.

@@ -1,4 +1,7 @@
-#Red Social - Stars Hub 
+
+
+
+# Red Social - Stars Hub 
 ¡Tu camino a una educación de calidad comienza aquí! 🚀
 Nuestra plataforma conecta a estudiantes con oportunidades académicas,
 recursos de estudio y apoyo entre compañeros. Todo en un solo lugar, 

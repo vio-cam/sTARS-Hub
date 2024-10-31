@@ -90,8 +90,15 @@ Nuestra app está diseñada con funcionalidades clave que facilitan la experienc
 tus conocimientos o recibir ayuda? ¡Únete a STARS HUB hoy mismo y forma
 parte de esta gran comunidad! ¡No dejes que las barreras te detengan!
 
+-------------------------------------------------------------------
 
+## Integrantes:
 
+💻Leticia Angeles Roncal
+📖Liliana Paredes Mendivil
+🤝Damaris Castillo Córdova
+🎨Jhadira Lavado Cárdenas
+🌠Violeta Camacho Macedo
 
 
 
